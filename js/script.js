@@ -1,4 +1,4 @@
-const roles = ["Cybersecurity Enthusiast", "DevOps Engineer", "Programmer"]; // Modify your roles here
+const roles = ["Cybersecurity Enthusiast", "DevOps Engineer", "Programmer"]; // Modify roles here
 let roleIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -13,24 +13,24 @@ function typeRole() {
   const currentRole = roles[roleIndex];
   
   if (!isDeleting && charIndex <= currentRole.length) {
-    // Type characters
+  
     roleElement.textContent = currentRole.slice(0, charIndex++);
     setTimeout(typeRole, typingSpeed);
   } 
   else if (isDeleting && charIndex >= 0) {
-    // Erase characters
+   
     roleElement.textContent = currentRole.slice(0, charIndex--);
     setTimeout(typeRole, erasingSpeed);
   } 
   else {
-    // Move to the next role or toggle erasing
+    
     if (!isDeleting) {
       isDeleting = true;
       setTimeout(typeRole, delayBetweenRoles);
     } else {
       isDeleting = false;
       charIndex = 0;
-      roleIndex = (roleIndex + 1) % roles.length; // Move to next role
+      roleIndex = (roleIndex + 1) % roles.length; 
       setTimeout(typeRole, typingSpeed);
     }
   }
